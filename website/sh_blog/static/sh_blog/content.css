@@ -1,0 +1,21 @@
+/* Основная часть */
+.content{
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+.twitter{
+    margin-top: 10px;
+    float: right;
+}
+h1{
+    margin-top: 20px;
+}
+.twitter{
+    margin-top: 20px;
+    margin-right: 10px;
+}
