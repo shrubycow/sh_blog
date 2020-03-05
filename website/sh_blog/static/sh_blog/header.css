@@ -17,7 +17,7 @@ nav A:active { text-decoration: none; }
 /* Убрать лишние отступы */
 body{
     margin: 0px;
-    background-color: rgb(215, 205, 253);
+    background-color: rgb(234, 229, 250);
 }
 
 /* шапка */
@@ -39,13 +39,14 @@ nav{
     width: 100%;
     padding-top: 10px;
     padding-bottom: 15px;
-}
+}   
 .auth{
     float: right;
     margin-right: 20px;
 }
+
 /* Катает шапку */
-.inner_header{
+.header{
     position: sticky;
     top: 0;
 }
