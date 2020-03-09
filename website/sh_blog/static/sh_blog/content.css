@@ -3,6 +3,10 @@
     width: 100%;
 
 }
+div h2{
+    font-family: 'Exo 2';
+
+}
 .left_menu{
     background-color: cornflowerblue;
     position: absolute;
@@ -10,7 +14,9 @@
     height:500px;
     margin-top: 30px;
 }
-
+p{
+    text-align: justify;
+}
 .big_elements{
     position: relative; 
     left: 200px;
@@ -35,6 +41,7 @@
 
 .small_cards{
     padding: 10px;
+    padding-top: 0px;
     margin: 30px; 
     margin-top: 30px;
     background-color: white;
@@ -42,6 +49,4 @@
 
 }
 
-h2{
-    margin-top: 20px;
-}
+
