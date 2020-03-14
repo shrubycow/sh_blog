@@ -1,30 +1,17 @@
 /* Основная часть */
-.img_after_header{
-    width: 100%;
-    margin: 0px;
-}
 h1{
-    font-size: 48px;
+    font-size: 40px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
     font-family: 'Exo 2';
     font-style: italic;
 }
-div h2{
-    padding-left: 7px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-family: 'Exo 2';
-
-}
 p{
-    margin: 0px 0px 0px 7px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 7px;
     text-align: justify;
-}
-.big_elements{
-    float: left;
-    width: 70%;
 }
 .post_image{
     height: 281px;
@@ -34,8 +21,8 @@ p{
     max-height: 100%;
 }
 .text_content{
+    margin: 20px 15% 20px 15%;
     overflow: hidden;
-    margin: 0px 30px 30px 30px; 
     background-color: white;
     padding-left: 10px;
     padding-right: 10px;
@@ -54,18 +41,8 @@ p{
 }          
 .author{
     float:right;
-}           
-/* Ссылочки */                                                                                                     
-A:link { 
-    text-decoration: none; /* Убирает подчеркивание для ссылок */
-   }
+}  
+/* Ссылки */
 
-A:visited { 
-    text-decoration: none;
-    color: #3b4d61;
-} 
+                                                                                                                
 
-A:active { text-decoration: none; }
-a{
-    color: #3b4d61;
-}

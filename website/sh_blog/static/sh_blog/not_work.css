@@ -1,0 +1,15 @@
+.wrapper{
+    margin: 20px 15% 20px 15%;
+}
+.first, .second, .third{
+    float: left;
+    margin-left: 100px;
+    width: 300px;
+}
+.rubric_img{
+    width: 300px;
+    height: 300px;
+}
+p{
+    text-align: center;
+}

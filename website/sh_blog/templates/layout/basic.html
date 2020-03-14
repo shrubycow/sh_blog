@@ -12,8 +12,9 @@
     <header>
         <nav>
           <ul>
+            <li><a href="{% url 'sh_blog:main' %}">Главная</a></li>
             <li><a href="#">О работе</a> </li>
-            <li><a href="#">Не о работе</a></li>
+            <li><a href="{% url 'sh_blog:not_work' %}">Не о работе</a></li>
             <li><a href="#">О сайте</a></li>
             <li class="auth"><a href="#">Вход</a> | <a href="#">Регистрация</a></li>
           </ul>

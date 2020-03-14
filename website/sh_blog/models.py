@@ -13,7 +13,7 @@ class Post(models.Model):
         ('published', 'Published'),
     )
     title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250, unique_for_date='publish')
+    slug = models.SlugField(max_length=250)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     body = fields.BBCodeTextField(verbose_name='Описание')
     publish = models.DateTimeField(default=timezone.now)
@@ -35,6 +35,7 @@ class Post(models.Model):
 class Rubric(models.Model):
 
     name = models.CharField(max_length=250)
+    image = models.CharField(max_length=250, null=True)
 
     class Meta:
         verbose_name = "Рубрика"
