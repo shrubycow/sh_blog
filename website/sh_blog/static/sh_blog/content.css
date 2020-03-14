@@ -69,3 +69,8 @@ A:active { text-decoration: none; }
 a{
     color: #3b4d61;
 }
+ol{
+    list-style-position: inside;
+    padding-left: 7px;
+    text-align: justify;
+}

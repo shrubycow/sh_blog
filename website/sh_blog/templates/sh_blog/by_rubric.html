@@ -1,11 +1,10 @@
 {% extends 'layout/basic.html' %}
 {% load static %}
-{% block styles %}
-  <link rel="stylesheet" href="{% static 'sh_blog/content.css' %}">
+{% block styles%}
+<link rel="stylesheet" href="{% static 'sh_blog/content.css' %}">
 {% endblock %}
 {% block content %}
-<img class="img_after_header" src="{% static 'sh_blog/back1_label.jpg' %}">
-<h1>Последнее</h1>
+<h1>{{rubric.name}}</h1>
   <div class="big_elements">
     {% for post in posts %}
     <div class="text_content">
@@ -17,7 +16,8 @@
       <img src="{{ post.image.url }}" class="post_image">
       <p>{{ post.body|truncatewords:150|safe }}</p>
     </div>
+    {% empty %}
+    <p>Здесь ничего нет</p>
     {% endfor %}
   </div>
-  
 {% endblock %}

@@ -12,7 +12,7 @@
     </ul>
     <img src="{{ post.image.url }}" class="post_image">
     {% autoescape on %}
-    <p>{{ post.body }}</p>
+    <p>{{ post.body|safe }}</p>
     {% endautoescape %}
 </div>
 {% endblock %}

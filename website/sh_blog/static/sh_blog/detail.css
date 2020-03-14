@@ -42,7 +42,11 @@ p{
 .author{
     float:right;
 }  
-/* Ссылки */
+ol{
+    list-style-position: inside;
+    padding-left: 7px;
+    text-align: justify;
+}
 
                                                                                                                 
 
