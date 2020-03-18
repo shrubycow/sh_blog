@@ -45,3 +45,17 @@ class Rubric(models.Model):
     def __str__(self):
         return self.name
 
+class TodaySchedule(models.Model):
+
+    lesson_numb = models.SmallIntegerField(primary_key=True, default=0)
+    subject = models.CharField(max_length=10, verbose_name='Предмет')
+    lessonType = models.CharField(max_length=10)
+    startLessonTime = models.TimeField()
+    endLessonTime = models.TimeField()
+    auditory = models.CharField(max_length=10)
+    employee = models.CharField(max_length=40, verbose_name='Преподаватель')
+    note = models.CharField(max_length=70, blank=True, default='')
+
+    class Meta:
+        verbose_name = 'Пара'
+        verbose_name_plural = 'Пары'
