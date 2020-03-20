@@ -19,5 +19,15 @@
     </div>
     {% endfor %}
   </div>
-  
+  <div class="small_elements">
+    <h2 class="schedule">Расписание на сегодня:</h2>
+    {% for lesson in schedule %}
+      <div class="lesson">
+        <table border="0">
+          <tr><td>{{lesson.startLessonTime|date:"H:i"}}</td><td>{{lesson.subject}}</td><td></td></tr>
+          <tr><td>{{lesson.endLessonTime|date:"H:i"}}</td><td>{{lesson.auditory}}</td><td class="teacher">{{lesson.employee}}</td></tr>
+          <tr><td></td><td colspan="2"><i>{{lesson.note}}</i></td></tr>
+        </table>
+      </div>
+    {% endfor %}
 {% endblock %}
