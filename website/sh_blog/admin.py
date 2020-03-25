@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Rubric
+from .models import Post, Rubric, UserProfile, Comment
 # Register your models here.
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -15,3 +15,15 @@ class RubricAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
     ordering = ('name',)
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'avatar')
+    search_fields = ('user',)
+    ordering = ('user',)
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('post', 'body', 'publish')
+    search_fields = ('post', 'body')
+    ordering = ('publish',)

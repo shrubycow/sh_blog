@@ -5,6 +5,9 @@ from precise_bbcode import fields
 
 def user_media_path(instance, filename):
     return 'user_{}/{}'.format(instance.author.id, filename)
+    
+def user_profile_media_path(instance, filename):
+    return 'user_{}/{}'.format(instance.user.id, filename)
 
 # Create your models here.
 class Post(models.Model):
@@ -59,3 +62,31 @@ class TodaySchedule(models.Model):
     class Meta:
         verbose_name = 'Пара'
         verbose_name_plural = 'Пары'
+
+class UserProfile(models.Model):
+
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
+    avatar = models.ImageField(upload_to=user_profile_media_path, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Профиль'
+        verbose_name_plural = 'Профили'
+
+    def __str__(self):
+        return self.user.username
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.PROTECT)
+    publish = models.DateTimeField(auto_now_add=True)
+    body = models.TextField()
+    profile = models.ForeignKey(UserProfile, on_delete=models.PROTECT)
+
+    class Meta:
+        ordering = ['-publish']
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
+
+    def __str__(self):
+        if len(self.body) > 50:
+            return self.body
+        return self.body[:50]+"..."
