@@ -22,9 +22,16 @@
 {% empty %}
   <p>Пока здесь нет комментариев, вы можете быть первым!</p>
 {% endfor %}
+{% if user.is_authenticated %}
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  <h2>Добавить комментарий:</h2>
+  {{ form.body }}
+  <br>
   <input type="submit" value="Добавить">
 </form>
+{% else %}
+<br>
+<p>Зарегистрируйтесь, или войдите, чтобы оставлять комментарии</p>
+{% endif %}
 {% endblock %}

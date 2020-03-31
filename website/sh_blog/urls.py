@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, post_detail, not_about_work, by_rubric
+from .views import index, post_detail, not_about_work, by_rubric, mail_for_myself
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -8,6 +8,7 @@ app_name = 'sh_blog'
 urlpatterns = [
     path('', index, name='main'),
     path('not-work/', not_about_work, name='not_work'),
+    path('mail/', mail_for_myself, name='mail'),
     path('<slug:slug>/', post_detail, name='detail'),
     path('not-work/<int:pk>/', by_rubric, name='by_rubric'),
 ]
