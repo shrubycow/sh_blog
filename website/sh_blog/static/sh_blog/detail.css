@@ -51,6 +51,22 @@ h2{
     margin-bottom: 0px;
 }
 
+/* comment */
+.avatar{
+    float: left;
+}
+.comment{
+    float: left;
+}
+.add_comment, .comments_h{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+#id_body{
+    width: 100%;
+}
+
+
 
                                                                                                                 
 

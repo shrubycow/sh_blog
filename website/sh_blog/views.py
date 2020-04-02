@@ -51,11 +51,3 @@ def by_rubric(request, pk):
     posts = bb_parse(posts)
     rubric = Rubric.objects.get(id=pk)
     return render(request, 'sh_blog/by_rubric.html', {'posts': posts, 'rubric': rubric})
-
-def mail_for_myself(request):
-    subject = "Django message"
-    message = "Hello! Who I am? Me it's you! From future!1!!"
-    from_email = 'alexandriyskiy0@gmail.com'
-    recipient_list = ['alexandriyskiy1@mail.ru']
-    send_mail(subject, message, from_email, recipient_list)
-    return redirect('sh_blog:main')

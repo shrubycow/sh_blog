@@ -13,16 +13,25 @@
     <img src="{{ post.image.url }}" class="post_image">
     <p>{{ post.body|safe }}</p>
 </div>
-<h2>Комментарии</h2>
+<h2 class="comments_h">Комментарии</h2>
 {% for comment in comments %}
-    <img src="{{ comment.profile.avatar.url }}" width="100" height="100">
-    <p>{{ comment.profile.user.username }}</p>
-    <p>{{ comment.publish }}</p>
-    <p>{{ comment.body }}</p>
+<div class="text_content">
+  <ul class="date_author">
+    <li class="date">{{ comment.publish }}</li>
+    <li class="author">{{ comment.profile.user.username }}</li>
+  </ul>
+    <img src="{{ comment.profile.avatar.url }}" width="100" height="100" class="avatar">
+    <p class="comment">{{ comment.body }}</p>
+</div>
 {% empty %}
-  <p>Пока здесь нет комментариев, вы можете быть первым!</p>
+{% if user.is_authenticated %}
+<div class="text_content">
+  <p class="comment">Пока здесь нет комментариев, вы можете быть первым!</p>
+</div>
+{% endif %}
 {% endfor %}
 {% if user.is_authenticated %}
+<div class="add_comment">
 <form method="post">
   {% csrf_token %}
   <h2>Добавить комментарий:</h2>
@@ -30,8 +39,12 @@
   <br>
   <input type="submit" value="Добавить">
 </form>
+</div>
 {% else %}
 <br>
-<p>Зарегистрируйтесь, или войдите, чтобы оставлять комментарии</p>
+<div class="text_content">
+  <p><a href="{% url 'accounts:django_registration_register' %}">Зарегистрируйтесь</a>, или <a href="{% url 'accounts:login'%}">войдите</a>, чтобы оставлять комментарии</p>
+</div>
 {% endif %}
+
 {% endblock %}

@@ -5,12 +5,13 @@ from django.views.generic.base import TemplateView
 app_name = 'accounts'
 
 urlpatterns = [
-     path(
-        "accounts/activate/complete/",
-        TemplateView.as_view(
-            template_name="django_registration/activation_complete.html"
-        ),
-        name="django_registration_activation_complete",
+    path('accounts/', include('django.contrib.auth.urls')),
+    path(
+       "accounts/activate/complete/",
+       TemplateView.as_view(
+           template_name="django_registration/activation_complete.html"
+       ),
+       name="django_registration_activation_complete",
     ),
     path(
         "accounts/activate/<str:activation_key>/",
@@ -36,5 +37,4 @@ urlpatterns = [
         ),
         name="django_registration_disallowed",
     ),
-    path('accounts/', include('django.contrib.auth.urls')),
 ]

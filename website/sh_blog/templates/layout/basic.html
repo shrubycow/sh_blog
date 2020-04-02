@@ -16,14 +16,15 @@
             <li><a href="#">О работе</a> </li>
             <li><a href="{% url 'sh_blog:not_work' %}">Не о работе</a></li>
             <li><a href="#">О сайте</a></li>
-            <li><a href="{% url 'sh_blog:mail' %}">БЕГЕМОТЫ</a></li>
-            <li class="auth"><a href="#">Вход</a> | <a href="#">Регистрация</a></li>
+            {% if user.is_authenticated %}
+            <li class="auth">{{ user.username }} | <a href="{% url 'accounts:logout' %}">Выйти</a></li>
+            {% else %}
+            <li class="auth"><a href="{% url 'accounts:login' %}">Вход</a> | <a href="{% url 'accounts:django_registration_register' %}">Регистрация</a></li>
+            {% endif %}
           </ul>
         </nav>
     </header>
   </div>
-  <!-- twitter -->
-  <!-- <div class="twitter"><a class="twitter-timeline" data-height="400" data-theme="light" href="https://twitter.com/Alexandriyskiy?ref_src=twsrc%5Etfw">Tweets by Alexandriyskiy</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> </div> -->
     <section>
       {% block content %}
       {% endblock %}
