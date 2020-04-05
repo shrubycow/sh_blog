@@ -27,7 +27,9 @@
         <table border="0">
           <tr><td><b>{{lesson.startLessonTime|date:"H:i"}}</b></td><td><b>{{lesson.subject|addstr:" ("|addstr:lesson.lessonType|addstr:")"}}</b></td><td></td></tr>
           <tr><td>{{lesson.endLessonTime|date:"H:i"}}</td><td>{{lesson.auditory}}</td><td class="teacher">{{lesson.employee}}</td></tr>
+          {% if lesson.note %}
           <tr><td></td><td colspan="2"><i>{{lesson.note}}</i></td></tr>
+          {% endif %}
         </table>
       </div>
     {% endfor %}

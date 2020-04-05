@@ -57,7 +57,7 @@ class TodaySchedule(models.Model):
     endLessonTime = models.TimeField()
     auditory = models.CharField(max_length=10)
     employee = models.CharField(max_length=40, verbose_name='Преподаватель')
-    note = models.CharField(max_length=70, blank=True, default='')
+    note = models.CharField(max_length=70, blank=True, null=True, default='')
 
     class Meta:
         verbose_name = 'Пара'

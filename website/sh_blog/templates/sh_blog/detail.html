@@ -15,7 +15,7 @@
 </div>
 <h2 class="comments_h">Комментарии</h2>
 {% for comment in comments %}
-<div class="text_content">
+<div class="text_content_comment">
   <ul class="date_author">
     <li class="date">{{ comment.publish }}</li>
     <li class="author">{{ comment.profile.user.username }}</li>
@@ -25,7 +25,7 @@
 </div>
 {% empty %}
 {% if user.is_authenticated %}
-<div class="text_content">
+<div class="text_content_comment">
   <p class="comment">Пока здесь нет комментариев, вы можете быть первым!</p>
 </div>
 {% endif %}
@@ -42,7 +42,7 @@
 </div>
 {% else %}
 <br>
-<div class="text_content">
+<div class="text_content_comment">
   <p><a href="{% url 'accounts:django_registration_register' %}">Зарегистрируйтесь</a>, или <a href="{% url 'accounts:login'%}">войдите</a>, чтобы оставлять комментарии</p>
 </div>
 {% endif %}

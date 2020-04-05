@@ -55,16 +55,39 @@ h2{
 .avatar{
     float: left;
 }
+.text_content_comment{
+    margin: 20px 20% 20px 20%;
+    overflow: hidden;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+}
 .comment{
     float: left;
 }
 .add_comment, .comments_h{
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 #id_body{
     width: 100%;
 }
+.reg_pls{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+A:link { 
+    text-decoration: none; /* Убирает подчеркивание для ссылок */
+   }
+
+A, A:visited { 
+    text-decoration: none;
+    color: #3b4d61;
+} 
+
+A:active { text-decoration: none; }
 
 
 

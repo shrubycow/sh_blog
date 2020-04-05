@@ -3,6 +3,9 @@
     font-family: 'Open Sans';
 }
 /* Ссылки  */
+A{
+    color: #bbcbec;
+}
 nav A:link { 
     text-decoration: none; /* Убирает подчеркивание для ссылок */
    }
