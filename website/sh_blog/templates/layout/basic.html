@@ -17,7 +17,7 @@
             <li><a href="{% url 'sh_blog:not_work' %}">Не о работе</a></li>
             <li><a href="#">О сайте</a></li>
             {% if user.is_authenticated %}
-            <li class="auth">{{ user.username }} | <a href="{% url 'accounts:logout' %}">Выйти</a></li>
+            <li class="auth"><a href="{% url 'accounts:profile' %}">{{ user.username }}</a> | <a href="{% url 'accounts:logout' %}">Выйти</a></li>
             {% else %}
             <li class="auth"><a href="{% url 'accounts:login' %}">Вход</a> | <a href="{% url 'accounts:django_registration_register' %}">Регистрация</a></li>
             {% endif %}

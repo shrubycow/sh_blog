@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
+from django.core.exceptions import PermissionDenied
 from .models import Post, Rubric, TodaySchedule, Comment, UserProfile
 from precise_bbcode.bbcode import get_parser
 from .forms import CommentForm
@@ -29,14 +30,17 @@ def post_detail(request, slug):
     post = bb_parse(post)
     comments = Comment.objects.filter(post__slug=slug)
     if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid:
-            new_comment = form.save(commit=False)
-            new_comment.post = Post.objects.get(slug=slug)
-            new_comment.profile = UserProfile.objects.get(user=request.user)
-            new_comment.save()
-            return redirect('sh_blog:detail', slug)
-        return render(request, 'sh_blog/detail.html', {'post': post, 'comments': comments, 'form': form})
+        if request.user.is_authenticated:    
+            form = CommentForm(request.POST)
+            if form.is_valid:
+                new_comment = form.save(commit=False)
+                new_comment.post = Post.objects.get(slug=slug)
+                new_comment.profile = UserProfile.objects.get(user=request.user)
+                new_comment.save()
+                return redirect('sh_blog:detail', slug)
+            return render(request, 'sh_blog/detail.html', {'post': post, 'comments': comments, 'form': form})
+        else:
+            raise PermissionDenied
     else:
         form = CommentForm()
         return render(request, 'sh_blog/detail.html', {'post': post, 'comments': comments, 'form': form})
