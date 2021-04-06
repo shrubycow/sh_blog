@@ -5,7 +5,7 @@ chardet==3.0.4
 confusable-homoglyphs==3.2.0
 Django==3.0
 django-precise-bbcode==1.2.12
-django-registration==3.1
+django-registration==3.1.2
 gunicorn==20.0.4
 idna==2.9
 isort==4.3.21
